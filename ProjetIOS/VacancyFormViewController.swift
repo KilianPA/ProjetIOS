@@ -25,7 +25,6 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
         self.ui_description.layer.borderColor = UIColor.lightGray.cgColor
         self.ui_description.layer.borderWidth = 1.0;
         self.ui_description.layer.cornerRadius = 8;
-
     }
     
     func sendEmail() {
