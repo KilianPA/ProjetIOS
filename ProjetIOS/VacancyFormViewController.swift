@@ -11,8 +11,6 @@ import MessageUI
 
 class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    var prenom: String?
-    var nom: String?
     var holiday: Holiday?
     
     @IBOutlet weak var ui_nom: UITextField!
@@ -23,7 +21,7 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(holiday?.name)
+        //print(holiday?.name)
         self.ui_description.layer.borderColor = UIColor.lightGray.cgColor
         self.ui_description.layer.borderWidth = 1.0;
         self.ui_description.layer.cornerRadius = 8;
@@ -32,14 +30,18 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
     
     func sendEmail() {
          
-        prenom? = ui_prenom.text!
-        nom? = ui_nom.text!
+        let prenom = ui_prenom.text!
+        let nom = ui_nom.text!
+        let age = ui_age.text!
+        let description : String = ui_description.text
+        let nameVacance = holiday?.name
+        let dateVacance = holiday?.date
         
         let mail = MFMailComposeViewController()
         mail.mailComposeDelegate = self
         mail.setToRecipients(["mathieu.menu02@gmail.com"])
-        mail.setSubject("Bonjour \(prenom ?? "") \(nom ?? "")")
-        mail.setMessageBody("<p>Test</p>", isHTML: true)
+        mail.setSubject("Bonjour \(prenom) \(nom)")
+        mail.setMessageBody("<p>Nom : \(nom)</p><p>Prenom : \(prenom)</p><p>Age : \(age)</p><p>Description : \(description)</p><p>Nom du férié :\(nameVacance ?? "")</p><p>Date du férié : \(dateVacance)</p>", isHTML: true)
 
         present(mail, animated: true)
         
@@ -52,11 +54,14 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
     @IBAction func validate(_ sender: Any) {
         
         if !MFMailComposeViewController.canSendMail() {
+            
             let alert = UIAlertController(title: "Emails", message: "Envoi d'emails non supportés", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
             
             }))
             self.present(alert, animated: true, completion: nil)
+            
+            
         }else{
             sendEmail()
         }
