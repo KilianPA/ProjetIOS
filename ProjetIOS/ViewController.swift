@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         var choiceYear = "1980"
         var choiceCountry = "FR"
         var listHolidays: [Holiday] = []
+    var selectedHoliday: Holiday?
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
@@ -89,13 +90,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         holidayTableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showHolidayItem" {
+            let detailVacancy = segue.destination as? VacancyFormViewController
+            detailVacancy?.holiday = selectedHoliday
+        }
+    }
+    
     func getHolidays (_ country:String,_ year:String)
     {
         self.loading.startAnimating()
         let apiKey = "209a28f24db3dc00c092d0852732611712440638"
     //    var url = "https://calendarific.com/api/v2/holidays?api_key=\(apiKey)&country=\(country)&year=\(year)"
         var url = "https://calendarific.com/api/v2/holidays?api_key=\(apiKey)&country=\(country)&year=\(year)"
-        print(url)
         AF.request(url, method: .get).responseDecodable { [weak self] (response: DataResponse<Vacancy, AFError>) in switch response.result {
         case .success(let data):
             self?.loading.stopAnimating()
@@ -122,8 +129,8 @@ extension ViewController: UITableViewDelegate {
         }*/
         
         //AVEC LES SEGUE
-//        selectedPerson = listOfContacts[indexPath.row]
-//        self.performSegue(withIdentifier: "showDetailFromList", sender: nil)
+        selectedHoliday = listHolidays[indexPath.row]
+        self.performSegue(withIdentifier: "showHolidayItem", sender: nil)
         
     }
     

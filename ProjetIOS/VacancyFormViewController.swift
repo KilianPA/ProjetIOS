@@ -13,6 +13,7 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
 
     var prenom: String?
     var nom: String?
+    var holiday: Holiday?
     
     @IBOutlet weak var ui_nom: UITextField!
     @IBOutlet weak var ui_prenom: UITextField!
@@ -22,7 +23,7 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(holiday?.name)
         self.ui_description.layer.borderColor = UIColor.lightGray.cgColor
         self.ui_description.layer.borderWidth = 1.0;
         self.ui_description.layer.cornerRadius = 8;
