@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1175BF70D4C516AEDEA2FCE0 /* Pods_ProjetIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA5338DA5258E06E6C100DE7 /* Pods_ProjetIOS.framework */; };
 		3937056923D6FF6600B57BD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3937056823D6FF6600B57BD7 /* AppDelegate.swift */; };
 		3937056B23D6FF6600B57BD7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3937056A23D6FF6600B57BD7 /* SceneDelegate.swift */; };
 		3937056D23D6FF6600B57BD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3937056C23D6FF6600B57BD7 /* ViewController.swift */; };
 		3937057023D6FF6600B57BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3937056E23D6FF6600B57BD7 /* Main.storyboard */; };
 		3937057223D6FF6700B57BD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3937057123D6FF6700B57BD7 /* Assets.xcassets */; };
 		3937057523D6FF6700B57BD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3937057323D6FF6700B57BD7 /* LaunchScreen.storyboard */; };
+		3937057D23D729DC00B57BD7 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3937057C23D729DC00B57BD7 /* Holiday.swift */; };
+		3937057F23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3937057E23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FB22C91946EDD835F921C6F /* Pods-ProjetIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.release.xcconfig"; sourceTree = "<group>"; };
 		3937056523D6FF6600B57BD7 /* ProjetIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3937056823D6FF6600B57BD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3937056A23D6FF6600B57BD7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,10 @@
 		3937057123D6FF6700B57BD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3937057423D6FF6700B57BD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3937057623D6FF6700B57BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3937057C23D729DC00B57BD7 /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
+		3937057E23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayCellViewTableViewCell.swift; sourceTree = "<group>"; };
+		E937F630C74B1D3C0BF122BB /* Pods-ProjetIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EA5338DA5258E06E6C100DE7 /* Pods_ProjetIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1175BF70D4C516AEDEA2FCE0 /* Pods_ProjetIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EF0B412991871CB6DCBAD4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA5338DA5258E06E6C100DE7 /* Pods_ProjetIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3937055C23D6FF6600B57BD7 = {
 			isa = PBXGroup;
 			children = (
 				3937056723D6FF6600B57BD7 /* ProjetIOS */,
 				3937056623D6FF6600B57BD7 /* Products */,
+				C5A1BB5DF864C99979026A05 /* Pods */,
+				1EF0B412991871CB6DCBAD4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +82,20 @@
 				3937057123D6FF6700B57BD7 /* Assets.xcassets */,
 				3937057323D6FF6700B57BD7 /* LaunchScreen.storyboard */,
 				3937057623D6FF6700B57BD7 /* Info.plist */,
+				3937057C23D729DC00B57BD7 /* Holiday.swift */,
+				3937057E23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift */,
 			);
 			path = ProjetIOS;
+			sourceTree = "<group>";
+		};
+		C5A1BB5DF864C99979026A05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E937F630C74B1D3C0BF122BB /* Pods-ProjetIOS.debug.xcconfig */,
+				2FB22C91946EDD835F921C6F /* Pods-ProjetIOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3937057923D6FF6700B57BD7 /* Build configuration list for PBXNativeTarget "ProjetIOS" */;
 			buildPhases = (
+				89BAE7F92553DFF8B76BC4DF /* [CP] Check Pods Manifest.lock */,
 				3937056123D6FF6600B57BD7 /* Sources */,
 				3937056223D6FF6600B57BD7 /* Frameworks */,
 				3937056323D6FF6600B57BD7 /* Resources */,
+				DE050D82B197F3DB41974482 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +166,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		89BAE7F92553DFF8B76BC4DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProjetIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE050D82B197F3DB41974482 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3937056123D6FF6600B57BD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,7 +215,9 @@
 			files = (
 				3937056D23D6FF6600B57BD7 /* ViewController.swift in Sources */,
 				3937056923D6FF6600B57BD7 /* AppDelegate.swift in Sources */,
+				3937057D23D729DC00B57BD7 /* Holiday.swift in Sources */,
 				3937056B23D6FF6600B57BD7 /* SceneDelegate.swift in Sources */,
+				3937057F23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +359,7 @@
 		};
 		3937057A23D6FF6700B57BD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E937F630C74B1D3C0BF122BB /* Pods-ProjetIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +377,7 @@
 		};
 		3937057B23D6FF6700B57BD7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FB22C91946EDD835F921C6F /* Pods-ProjetIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
