@@ -14,9 +14,9 @@
 		3937057023D6FF6600B57BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3937056E23D6FF6600B57BD7 /* Main.storyboard */; };
 		3937057223D6FF6700B57BD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3937057123D6FF6700B57BD7 /* Assets.xcassets */; };
 		3937057523D6FF6700B57BD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3937057323D6FF6700B57BD7 /* LaunchScreen.storyboard */; };
-		EC39141823D7035300066DE6 /* VacancyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39141723D7035300066DE6 /* VacancyFormViewController.swift */; };
 		3937057D23D729DC00B57BD7 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3937057C23D729DC00B57BD7 /* Holiday.swift */; };
 		3937057F23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3937057E23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift */; };
+		EC39141823D7035300066DE6 /* VacancyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39141723D7035300066DE6 /* VacancyFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +29,11 @@
 		3937057123D6FF6700B57BD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3937057423D6FF6700B57BD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3937057623D6FF6700B57BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC39141723D7035300066DE6 /* VacancyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFormViewController.swift; sourceTree = "<group>"; };
 		3937057C23D729DC00B57BD7 /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		3937057E23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayCellViewTableViewCell.swift; sourceTree = "<group>"; };
 		E937F630C74B1D3C0BF122BB /* Pods-ProjetIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS/Pods-ProjetIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EA5338DA5258E06E6C100DE7 /* Pods_ProjetIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC39141723D7035300066DE6 /* VacancyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +83,9 @@
 				3937056E23D6FF6600B57BD7 /* Main.storyboard */,
 				3937057123D6FF6700B57BD7 /* Assets.xcassets */,
 				3937057323D6FF6700B57BD7 /* LaunchScreen.storyboard */,
+				3937057C23D729DC00B57BD7 /* Holiday.swift */,
 				3937057623D6FF6700B57BD7 /* Info.plist */,
 				EC39141723D7035300066DE6 /* VacancyFormViewController.swift */,
-				3937057C23D729DC00B57BD7 /* Holiday.swift */,
 				3937057E23D72AA600B57BD7 /* HolidayCellViewTableViewCell.swift */,
 			);
 			path = ProjetIOS;
@@ -97,7 +97,6 @@
 				E937F630C74B1D3C0BF122BB /* Pods-ProjetIOS.debug.xcconfig */,
 				2FB22C91946EDD835F921C6F /* Pods-ProjetIOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

@@ -170,13 +170,24 @@
                                     <action selector="validate:" destination="xKR-RL-sZy" eventType="touchUpInside" id="qTH-ta-3Wa"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKV-Fc-aMi">
+                                <rect key="frame" x="20" y="688" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3F-eN-05w">
+                                <rect key="frame" x="265" y="752" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choisir une image"/>
+                                <connections>
+                                    <action selector="imagePicker:" destination="xKR-RL-sZy" eventType="touchUpInside" id="ZzW-gY-nvu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="cF5-kX-3Tl" firstAttribute="leading" secondItem="Gy5-LN-5Jy" secondAttribute="leading" constant="20" id="0Oc-dC-CmT"/>
                             <constraint firstItem="Gy5-LN-5Jy" firstAttribute="trailing" secondItem="f6Z-ar-iYr" secondAttribute="trailing" constant="20" id="21y-FB-Lbo"/>
                             <constraint firstItem="Gy5-LN-5Jy" firstAttribute="trailing" secondItem="wV9-fM-p34" secondAttribute="trailing" constant="20" id="3mF-OC-Y56"/>
-                            <constraint firstItem="cF5-kX-3Tl" firstAttribute="top" secondItem="J9V-MV-qcp" secondAttribute="bottom" constant="40" id="DDc-rL-5xJ"/>
                             <constraint firstItem="Gy5-LN-5Jy" firstAttribute="trailing" secondItem="wV9-fM-p34" secondAttribute="trailing" constant="20" id="ETK-kp-Z7Z"/>
                             <constraint firstItem="ahf-vZ-rHG" firstAttribute="top" secondItem="Gy5-LN-5Jy" secondAttribute="top" constant="20" id="F1t-ng-eCF"/>
                             <constraint firstItem="cF5-kX-3Tl" firstAttribute="top" secondItem="J9V-MV-qcp" secondAttribute="bottom" constant="20" id="GnL-qF-6qN"/>
@@ -184,8 +195,6 @@
                             <constraint firstItem="ahf-vZ-rHG" firstAttribute="leading" secondItem="Gy5-LN-5Jy" secondAttribute="leading" constant="20" id="Swr-HM-efX"/>
                             <constraint firstItem="Gy5-LN-5Jy" firstAttribute="trailing" secondItem="cF5-kX-3Tl" secondAttribute="trailing" constant="20" id="XNE-bP-cE7"/>
                             <constraint firstItem="v99-cq-1q2" firstAttribute="leading" secondItem="Gy5-LN-5Jy" secondAttribute="leading" constant="20" id="Xow-bU-fjp"/>
-                            <constraint firstItem="J9V-MV-qcp" firstAttribute="top" secondItem="f6Z-ar-iYr" secondAttribute="bottom" constant="8" symbolic="YES" id="YMb-dq-1Wy"/>
-                            <constraint firstItem="wV9-fM-p34" firstAttribute="top" secondItem="2c7-nb-UeR" secondAttribute="bottom" constant="40" id="YWp-gh-FhR"/>
                             <constraint firstItem="f6Z-ar-iYr" firstAttribute="top" secondItem="ahf-vZ-rHG" secondAttribute="bottom" constant="20" id="ZIY-GJ-3Hi"/>
                             <constraint firstItem="J9V-MV-qcp" firstAttribute="leading" secondItem="Gy5-LN-5Jy" secondAttribute="leading" constant="20" id="fYF-XQ-FN8"/>
                             <constraint firstItem="2c7-nb-UeR" firstAttribute="leading" secondItem="Gy5-LN-5Jy" secondAttribute="leading" constant="20" id="fp5-mV-4pg"/>
@@ -202,7 +211,9 @@
                     <navigationItem key="navigationItem" id="ck1-Uc-5Gz"/>
                     <connections>
                         <outlet property="ui_age" destination="wV9-fM-p34" id="voy-mB-Xi4"/>
+                        <outlet property="ui_button" destination="P3F-eN-05w" id="vOU-d6-u80"/>
                         <outlet property="ui_description" destination="Gxt-sz-UdX" id="XCg-KO-MLL"/>
+                        <outlet property="ui_image" destination="pKV-Fc-aMi" id="oep-Pz-9GA"/>
                         <outlet property="ui_nom" destination="f6Z-ar-iYr" id="yCL-z9-ey5"/>
                         <outlet property="ui_prenom" destination="cF5-kX-3Tl" id="lO9-fc-NIr"/>
                         <outlet property="ui_valider" destination="MAj-Dy-jMz" id="ezc-gw-hhk"/>

@@ -9,9 +9,10 @@
 import UIKit
 import MessageUI
 
-class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     var holiday: Holiday?
+    var pickedImage:UIImage?
     
     @IBOutlet weak var ui_nom: UITextField!
     @IBOutlet weak var ui_prenom: UITextField!
@@ -19,12 +20,18 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var ui_description: UITextView!
     @IBOutlet weak var ui_valider: UIButton!
     
+    @IBOutlet weak var ui_image: UIImageView!
+    
+    @IBOutlet weak var ui_button: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(holiday?.name)
         self.ui_description.layer.borderColor = UIColor.lightGray.cgColor
         self.ui_description.layer.borderWidth = 1.0;
         self.ui_description.layer.cornerRadius = 8;
+        
     }
     
     func sendEmail() {
@@ -66,4 +73,25 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
         }
         
     }
+    
+    @IBAction func imagePicker(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        self.present(imagePickerController, animated: true, completion: nil)
+    
+    }
+    
+    //func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+   // }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+
+        ui_image.image = image
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }
