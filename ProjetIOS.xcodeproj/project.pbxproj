@@ -13,6 +13,7 @@
 		3937057023D6FF6600B57BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3937056E23D6FF6600B57BD7 /* Main.storyboard */; };
 		3937057223D6FF6700B57BD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3937057123D6FF6700B57BD7 /* Assets.xcassets */; };
 		3937057523D6FF6700B57BD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3937057323D6FF6700B57BD7 /* LaunchScreen.storyboard */; };
+		EC39141823D7035300066DE6 /* VacancyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39141723D7035300066DE6 /* VacancyFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3937057123D6FF6700B57BD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3937057423D6FF6700B57BD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3937057623D6FF6700B57BD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC39141723D7035300066DE6 /* VacancyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyFormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3937057123D6FF6700B57BD7 /* Assets.xcassets */,
 				3937057323D6FF6700B57BD7 /* LaunchScreen.storyboard */,
 				3937057623D6FF6700B57BD7 /* Info.plist */,
+				EC39141723D7035300066DE6 /* VacancyFormViewController.swift */,
 			);
 			path = ProjetIOS;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				3937056D23D6FF6600B57BD7 /* ViewController.swift in Sources */,
 				3937056923D6FF6600B57BD7 /* AppDelegate.swift in Sources */,
+				EC39141823D7035300066DE6 /* VacancyFormViewController.swift in Sources */,
 				3937056B23D6FF6600B57BD7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,7 +289,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ProjetIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +308,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ProjetIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
