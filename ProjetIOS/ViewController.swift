@@ -13,20 +13,22 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var text_country_input: UITextField!
     @IBOutlet weak var text_year_input: UITextField!
+    @IBOutlet weak var holidayTableView: UITableView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     var uiPickerYear : UIPickerView!
     var uiPickerCountry : UIPickerView!
 
     var pickerDataYear: [String] = [String]()
-        var pickerDataCountry = ["FR", "US", "CH"]
-        var choiceYear = "1980"
-        var choiceCountry = "FR"
-        var listHolidays: [Holiday] = []
+    var pickerDataCountry = ["FR", "US", "CH"]
+    var choiceYear = "1980"
+    var choiceCountry = "FR"
+    var listHolidays: [Holiday] = []
     var selectedHoliday: Holiday?
         
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
-        }
+    }
      
     @IBAction func searchHolidays(_ sender: Any) {
         getHolidays(text_country_input.text ?? "FR", text_year_input.text ?? "1980")
@@ -96,9 +98,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     // Number of columns of data
-        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1
-        }
+    }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
                 if (pickerView == uiPickerYear) {
@@ -131,8 +133,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             return ""
         }
     
-    @IBOutlet weak var holidayTableView: UITableView!
-    @IBOutlet weak var loading: UIActivityIndicatorView!
         override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -183,15 +183,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        // DEPUIS STORYBOARD INSTANCE
-        /*let mainStorybard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailVC = mainStorybard.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController {
-            detailVC.person = listOfContacts[indexPath.row]
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }*/
-        
-        //AVEC LES SEGUE
+    
         selectedHoliday = listHolidays[indexPath.row]
         self.performSegue(withIdentifier: "showHolidayItem", sender: nil)
         
