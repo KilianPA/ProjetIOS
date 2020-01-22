@@ -22,20 +22,13 @@
                                 </constraints>
                             </pickerView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t28-R1-Tqm">
-                                <rect key="frame" x="0.0" y="221" width="414" height="103"/>
+                                <rect key="frame" x="0.0" y="221" width="414" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="103" id="WFR-wh-7Al"/>
                                 </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hd-Bf-i5K">
-                                <rect key="frame" x="183.5" y="346" width="47" height="30"/>
-                                <state key="normal" title="Valider"/>
-                                <connections>
-                                    <action selector="searchHolidays:" destination="BYZ-38-t0r" eventType="touchUpInside" id="807-Fn-1QO"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pFK-F3-yPI">
-                                <rect key="frame" x="0.0" y="356" width="414" height="506"/>
+                                <rect key="frame" x="0.0" y="384" width="414" height="478"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="qIq-Ub-cF4">
@@ -73,10 +66,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hd-Bf-i5K">
+                                <rect key="frame" x="183.5" y="313" width="47" height="30"/>
+                                <state key="normal" title="Valider"/>
+                                <connections>
+                                    <action selector="searchHolidays:" destination="BYZ-38-t0r" eventType="touchUpInside" id="807-Fn-1QO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="t28-R1-Tqm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="08X-Vb-pmQ"/>
+                            <constraint firstItem="0Hd-Bf-i5K" firstAttribute="top" secondItem="W0j-VA-UHG" secondAttribute="bottom" constant="100" id="2bB-SN-neR"/>
                             <constraint firstItem="0Hd-Bf-i5K" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6qT-wU-Bfp"/>
                             <constraint firstItem="W0j-VA-UHG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ffc-8G-jif"/>
                             <constraint firstItem="0Hd-Bf-i5K" firstAttribute="top" secondItem="t28-R1-Tqm" secondAttribute="bottom" constant="22" id="HsO-wN-jRt"/>
@@ -161,25 +162,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.fill" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKV-Fc-aMi">
+                                <rect key="frame" x="20" y="688" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3F-eN-05w">
+                                <rect key="frame" x="271" y="708" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choisir une image"/>
+                                <connections>
+                                    <action selector="imagePicker:" destination="xKR-RL-sZy" eventType="touchUpInside" id="ZzW-gY-nvu"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAj-Dy-jMz">
-                                <rect key="frame" x="258" y="672" width="136" height="72"/>
+                                <rect key="frame" x="264" y="746" width="136" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Valider"/>
                                 <connections>
                                     <action selector="validate:" destination="xKR-RL-sZy" eventType="touchUpInside" id="qTH-ta-3Wa"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKV-Fc-aMi">
-                                <rect key="frame" x="20" y="688" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3F-eN-05w">
-                                <rect key="frame" x="265" y="752" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Choisir une image"/>
-                                <connections>
-                                    <action selector="imagePicker:" destination="xKR-RL-sZy" eventType="touchUpInside" id="ZzW-gY-nvu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -242,4 +244,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.fill" catalog="system" width="64" height="48"/>
+    </resources>
 </document>
