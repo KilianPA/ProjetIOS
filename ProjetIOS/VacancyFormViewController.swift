@@ -45,7 +45,10 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
         
         let mail = MFMailComposeViewController()
         mail.mailComposeDelegate = self
-        mail.setToRecipients(["mathieu.menu02@gmail.com"])
+        
+        let imageData = self.pickedImage!.jpegData(compressionQuality: 1)!
+        mail.addAttachmentData(imageData, mimeType:"image/jpeg", fileName:"pic.jpeg")
+        mail.setToRecipients(["valentindenis80@gmail.com"])
         mail.setSubject("Bonjour \(prenom) \(nom)")
         mail.setMessageBody("<p>Nom : \(nom)</p><p>Prenom : \(prenom)</p><p>Age : \(age)</p><p>Description : \(description)</p><p>Nom du férié :\(nameVacance ?? "")</p><p>Date du férié : \(dateVacance)</p>", isHTML: true)
 
@@ -66,7 +69,7 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
             
             }))
             self.present(alert, animated: true, completion: nil)
-            
+
             
         }else{
             sendEmail()
@@ -87,9 +90,12 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
    // }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
 
         ui_image.image = image
+        
+        self.pickedImage = image
         
         picker.dismiss(animated: true, completion: nil)
     }
