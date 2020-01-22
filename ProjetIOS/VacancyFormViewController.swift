@@ -9,25 +9,27 @@
 import UIKit
 import MessageUI
 
-class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate,UITextViewDelegate {
-
+class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate,UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var pickerDataAge: [String] = [String]()
     var holiday: Holiday?
     var pickedImage:UIImage?
+    var choiceAge = "1"
     
     @IBOutlet weak var ui_nom: UITextField!
     @IBOutlet weak var ui_prenom: UITextField!
-    @IBOutlet weak var ui_age: UITextField!
     @IBOutlet weak var ui_description: UITextView!
     @IBOutlet weak var ui_valider: UIButton!
     
     @IBOutlet weak var ui_image: UIImageView!
-    
     @IBOutlet weak var ui_button: UIButton!
+    @IBOutlet weak var ui_pickerAge: UIPickerView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(holiday?.name)
+        
+        
         self.ui_description.layer.borderColor = UIColor.lightGray.cgColor
         self.ui_description.layer.borderWidth = 1.0;
         self.ui_description.layer.cornerRadius = 8;
@@ -35,7 +37,36 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
         self.ui_nom.delegate = self
         self.ui_prenom.delegate = self
         self.ui_description.delegate = self
+        
+        self.ui_pickerAge.delegate = self
+        self.ui_pickerAge.dataSource = self
+        
+        self.title = self.holiday?.name
+        
+        for index in 1...110 {
+            pickerDataAge.append("\(index)")
+        }
       
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return pickerDataAge[row]
+
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerDataAge.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+         choiceAge = pickerDataAge[row] as String
+
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -51,11 +82,12 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
         return true
     }
     
+    
     func sendEmail() {
          
         let prenom = ui_prenom.text!
         let nom = ui_nom.text!
-        let age = ui_age.text!
+        let age = choiceAge
         let description : String = ui_description.text
         let nameVacance = holiday?.name
         let dateVacance = holiday?.date
@@ -69,6 +101,7 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
         mail.setSubject("Bonjour \(prenom) \(nom)")
         mail.setMessageBody("<p>Nom : \(nom)</p><p>Prenom : \(prenom)</p><p>Age : \(age)</p><p>Description : \(description)</p><p>Nom du férié :\(nameVacance ?? "")</p><p>Date du férié : \(dateVacance)</p>", isHTML: true)
 
+        
         present(mail, animated: true)
         
     }
@@ -87,7 +120,7 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
             }))
             self.present(alert, animated: true, completion: nil)
 
-            
+            print(choiceAge)
         }else{
             sendEmail()
         }
@@ -102,9 +135,6 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
     
     }
     
-    //func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        
-   // }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
