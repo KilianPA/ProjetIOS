@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate,UITextViewDelegate {
 
     var holiday: Holiday?
     var pickedImage:UIImage?
@@ -32,6 +32,23 @@ class VacancyFormViewController: UIViewController, MFMailComposeViewControllerDe
         self.ui_description.layer.borderWidth = 1.0;
         self.ui_description.layer.cornerRadius = 8;
         
+        self.ui_nom.delegate = self
+        self.ui_prenom.delegate = self
+        self.ui_description.delegate = self
+      
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func sendEmail() {
