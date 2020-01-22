@@ -9,9 +9,14 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-        var pickerDataYear: [String] = [String]()
+    @IBOutlet weak var text_country_input: UITextField!
+    @IBOutlet weak var text_year_input: UITextField!
+    var uiPickerYear : UIPickerView!
+    var uiPickerCountry : UIPickerView!
+
+    var pickerDataYear: [String] = [String]()
         var pickerDataCountry = ["FR", "US", "CH"]
         var choiceYear = "1980"
         var choiceCountry = "FR"
@@ -24,14 +29,77 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
      
     @IBAction func searchHolidays(_ sender: Any) {
-        getHolidays(choiceCountry, choiceYear)
+        getHolidays(text_country_input.text ?? "FR", text_year_input.text ?? "1980")
     }
+    
+    @objc func doneClickYear() {
+        text_year_input.resignFirstResponder()
+
+    }
+    @objc func cancelClickYear() {
+        text_year_input.resignFirstResponder()
+    }
+    
+    
+    @objc func doneClickCountry() {
+        text_country_input.resignFirstResponder()
+
+    }
+    @objc func cancelClickCountry() {
+        text_country_input.resignFirstResponder()
+    }
+    
+    func pickUpCountry () {
+        self.uiPickerCountry = UIPickerView()
+        self.uiPickerCountry.delegate = self
+        self.uiPickerCountry.dataSource = self
+        self.uiPickerCountry.backgroundColor = UIColor.white
+        
+        text_country_input.inputView = self.uiPickerCountry
+
+        // ToolBar
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.sizeToFit()
+
+        // Adding Button ToolBar
+        let doneButton = UIBarButtonItem(title: "Valider", style: .plain, target: self, action: #selector(doneClickCountry))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Annuler", style: .plain, target: self, action: #selector(cancelClickCountry))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        text_country_input.inputAccessoryView = toolBar
+    }
+    
+    func pickUpYear(){
+
+                    self.uiPickerYear = UIPickerView()
+                    self.uiPickerYear.delegate = self
+                    self.uiPickerYear.dataSource = self
+                    self.uiPickerYear.backgroundColor = UIColor.white
+
+        text_year_input.inputView = self.uiPickerYear
+
+        // ToolBar
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.sizeToFit()
+
+        // Adding Button ToolBar
+        let doneButton = UIBarButtonItem(title: "Valider", style: .plain, target: self, action: #selector(doneClickYear))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Annuler", style: .plain, target: self, action: #selector(cancelClickYear))
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        text_year_input.inputAccessoryView = toolBar
+
+    }
+    
     // Number of columns of data
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1
         }
-        
-        // The number of rows of data
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
                 if (pickerView == uiPickerYear) {
                     return pickerDataYear.count
@@ -41,13 +109,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 }
             return 0
         }
+
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == uiPickerYear) {
-         choiceYear = pickerDataYear[row] as String
+            text_year_input.text = pickerDataYear[row] as String
 
      } else if (pickerView == uiPickerCountry) {
-         choiceCountry = pickerDataCountry[row] as String
+            text_country_input.text = pickerDataCountry[row] as String
      }
     }
         
@@ -63,26 +132,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     
     @IBOutlet weak var holidayTableView: UITableView!
-    @IBOutlet weak var uiPickerCountry: UIPickerView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
-    
-    @IBOutlet weak var uiPickerYear: UIPickerView!
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.uiPickerYear.delegate = self
-        self.uiPickerYear.dataSource = self
-        
-        self.uiPickerCountry.delegate = self
-        self.uiPickerCountry.dataSource = self
-        
+                
         self.holidayTableView.delegate = self
         self.holidayTableView.dataSource = self
         
         for index in 1980...2020 {
             pickerDataYear.append("\(index)")
         }
-        getHolidays(choiceCountry, choiceYear)
+            
+        pickUpCountry()
+        pickUpYear()
+            getHolidays(text_country_input.text ?? "FR", text_year_input.text ?? "1980")
     }
     
     override func viewWillAppear(_ animated: Bool) {
